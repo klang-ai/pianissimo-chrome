@@ -1,0 +1,37 @@
+{
+  "dataset": "google/fleurs",
+  "revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+  "split": "test",
+  "rows": [
+    {
+      "file": "en_us-1003119935936341070.wav",
+      "language": "en_us",
+      "original": "1003119935936341070.wav",
+      "text": "However, due to the slow communication channels, styles in the west could lag behind by 25 to 30 year."
+    },
+    {
+      "file": "de_de-10004059102127011984.wav",
+      "language": "de_de",
+      "original": "10004059102127011984.wav",
+      "text": "Für die besten Aussichten auf Hongkong sollten Sie die Insel verlassen und zum gegenüberliegenden Ufer von Kowloon fahren."
+    },
+    {
+      "file": "fr_fr-10043298898524273336.wav",
+      "language": "fr_fr",
+      "original": "10043298898524273336.wav",
+      "text": "L’accident a eu lieu en terrain montagneux, et il semblerait que cela ait été causé par un incendie malveillant."
+    },
+    {
+      "file": "da_dk-10016401698104160032.wav",
+      "language": "da_dk",
+      "original": "10016401698104160032.wav",
+      "text": "Dette er en vigtig måde at skelne mellem nogle verber og objektiver"
+    },
+    {
+      "file": "ru_ru-10000611681338527501.wav",
+      "language": "ru_ru",
+      "original": "10000611681338527501.wav",
+      "text": "В древнем Китае использовали уникальный способ обозначения периодов времени; каждый этап Китая или каждая семья, находившаяся у власти, были особой династией."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Pianissimo",
+  "version": "0.3.0",
+  "description": "Transcribe audio files and microphone recordings on your device. Works offline after the first model download.",
+  "homepage_url": "https://github.com/klang-ai/pianissimo-chrome",
+  "minimum_chrome_version": "120",
+  "action": {
+    "default_title": "Pianissimo",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "permissions": ["unlimitedStorage", "offscreen"],
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' blob: https://huggingface.co https://*.huggingface.co https://*.hf.co; media-src 'self' blob:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"
+  },
+  "cross_origin_embedder_policy": {
+    "value": "require-corp"
+  },
+  "cross_origin_opener_policy": {
+    "value": "same-origin"
+  }
+}

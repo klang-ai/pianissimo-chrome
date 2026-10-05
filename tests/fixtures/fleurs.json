@@ -1,0 +1,20 @@
+[
+  {
+    "file": "fleurs-5069926933251281875.wav",
+    "text": "Människor har känt till grundläggande kemiska ämnen såsom guld, silver och koppar sedan antiken, då dessa kan upptäckas i naturen i sin ursprungliga form och är relativt enkla att utvinna med primitiva verktyg.",
+    "normalized": "människor har känt till grundläggande kemiska ämnen såsom guld silver och koppar sedan antiken då dessa kan upptäckas i naturen i sin ursprungliga form och är relativt enkla att utvinna med primitiva verktyg",
+    "speaker": "MALE"
+  },
+  {
+    "file": "fleurs-7619464773135024428.wav",
+    "text": "Han rapporterades vara mellan 20 och 30 år. I ett uttalande sa Bieber \"jag var inte närvarande eller direkt involverad i denna tragiska olycka, men jag tänker på och ber för offrets familj\".",
+    "normalized": "han rapporterades vara mellan 20 och 30 år. i ett uttalande sa bieber jag var inte närvarande eller direkt involverad i denna tragiska olycka men jag tänker på och ber för offrets familj\"\".",
+    "speaker": "MALE"
+  },
+  {
+    "file": "fleurs-529121125980696453.wav",
+    "text": "Schengenområdet fungerar emellertid ungefär som ett land i detta avseende.",
+    "normalized": "schengenområdet fungerar emellertid ungefär som ett land i detta avseende",
+    "speaker": "FEMALE"
+  }
+]

@@ -1,0 +1,17 @@
+node_modules/
+dist/
+release/
+.models
+.venv/
+test-results/
+playwright-report/
+.DS_Store
+public/runtime/
+
+.env
+.env.*
+*.log
+
+# Native ONNX reference tooling
+:memory:.ses
+__pycache__/

@@ -1,0 +1,13 @@
+node_modules/
+dist/
+release/
+.models/
+.venv/
+test-results/
+playwright-report/
+public/runtime/
+public/brand/
+licenses/
+package-lock.json
+tests/fixtures/**/*.json
+docs/*manifest.json

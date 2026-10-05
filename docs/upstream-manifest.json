@@ -1,0 +1,113 @@
+{
+ "model": "KlangAI/pianissimo-sv-onnx",
+ "checkpoint_sha256": "ca340b827dc9e18d2019341fa7b6dc163f00284d84066ce2cbfffcaa129920cd",
+ "versions": {
+  "nemo": "2.7.3",
+  "torch": "2.6.0+cpu",
+  "onnx": "1.22.0",
+  "opset": 17
+ },
+ "attention": "block-local",
+ "att_context": [
+  256,
+  256
+ ],
+ "builds": {
+  "fp32": {
+   "files": [
+    "decoder_joint-model.onnx",
+    "encoder-model.onnx",
+    "encoder-model.onnx.data"
+   ],
+   "source": {
+    "nemo": "pianissimo-sv.nemo",
+    "sha256": "ca340b827dc9e18d2019341fa7b6dc163f00284d84066ce2cbfffcaa129920cd",
+    "bytes": 2509322240
+   }
+  },
+  "fp16": {
+   "files": [
+    "decoder_joint-model.fp16.onnx",
+    "encoder-model.fp16.onnx"
+   ],
+   "source": {
+    "nemo": "pianissimo-sv.nemo",
+    "sha256": "ca340b827dc9e18d2019341fa7b6dc163f00284d84066ce2cbfffcaa129920cd",
+    "bytes": 2509322240
+   }
+  },
+  "int8": {
+   "files": [
+    "decoder_joint-model.int8.onnx",
+    "encoder-model.int8.onnx"
+   ],
+   "source": {
+    "nemo": "pianissimo_sq.nemo",
+    "sha256": "9e58bd8e7833c0c348132163b23aaf1e308d3349288482a067d8ab6cca8016b1",
+    "bytes": 2509322240,
+    "note": "pianissimo-sv.nemo with SmoothQuant alpha 0.5 folded into the weights"
+   }
+  },
+  "int4": {
+   "files": [
+    "decoder_joint-model.int4.onnx",
+    "encoder-model.int4.onnx"
+   ],
+   "source": {
+    "nemo": "pianissimo-sv.nemo",
+    "sha256": "ca340b827dc9e18d2019341fa7b6dc163f00284d84066ce2cbfffcaa129920cd",
+    "bytes": 2509322240
+   }
+  }
+ },
+ "files": {
+  "config.json": {
+   "bytes": 116,
+   "sha256": "f19eee59d2ba995f6d5cdb164e30dd64d2a8b7ed0ce9f2198ab68a5467445694"
+  },
+  "decoder_joint-model.fp16.onnx": {
+   "bytes": 36267462,
+   "sha256": "a3df1639600cfee598f3a003f4bdee0f76170d0f104effb88885236749b0c4aa"
+  },
+  "decoder_joint-model.int4.onnx": {
+   "bytes": 28378227,
+   "sha256": "bf9b99051419623751e34d542c0076ab50f84bbde4f68f095850b2d4cefdafcd"
+  },
+  "decoder_joint-model.int8.onnx": {
+   "bytes": 30025652,
+   "sha256": "0f9213242acd8874f2717c5e3cdb888d4e7673ddf3abb9ee3a2fd2eaf0acdd03"
+  },
+  "decoder_joint-model.onnx": {
+   "bytes": 72520893,
+   "sha256": "1b796d178bd5f0e59fe4dd636f2a0d9be027c935d105ceedda3babc15c06d2ac"
+  },
+  "encoder-model.fp16.onnx": {
+   "bytes": 1246604787,
+   "sha256": "1e7c36488dc3946eb2f0ea487135beaf1408b6f1967bad1be56908a7f12c3466"
+  },
+  "encoder-model.int4.onnx": {
+   "bytes": 486421211,
+   "sha256": "689b18b1c58df738e4a309757a817f4a8fcdad8e99d770f6810b3449be95b729"
+  },
+  "encoder-model.int8.onnx": {
+   "bytes": 630313965,
+   "sha256": "13288a5f4f009bf6bf8a3260044d098f6922e8caf1c564521d4962fa5749f66c"
+  },
+  "encoder-model.onnx": {
+   "bytes": 356069854,
+   "sha256": "8939fa038d96baef7567e8e07de56acbec28815ab0ebcbefb9eff009ccf70261"
+  },
+  "encoder-model.onnx.data": {
+   "bytes": 2133430272,
+   "sha256": "266f27c808431df1316bdb773bbf8284ffb8fae40dd847afba52da0bcfe656de"
+  },
+  "nemo128.onnx": {
+   "bytes": 138824,
+   "sha256": "5b4a84c52eeaa615dc46d781cc7e4598f9b432184831d57493c48adcd01371a9"
+  },
+  "vocab.txt": {
+   "bytes": 93939,
+   "sha256": "d58544679ea4bc6ac563d1f545eb7d474bd6cfa467f0a6e2c1dc1c7d37e3c35d"
+  }
+ }
+}

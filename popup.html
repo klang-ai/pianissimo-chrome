@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>Pianissimo</title>
+    <link rel="icon" href="/icons/32.png" />
+  </head>
+  <body class="popup">
+    <div class="app-shell">
+      <header>
+        <div class="brand">
+          <img class="brand-mark" src="/brand/wave.svg" width="64" height="24" alt="" />
+          <h1>Pianissimo<span>.</span></h1>
+        </div>
+        <div class="header-actions">
+          <button id="settings-open" class="icon-button" aria-label="Settings" title="Settings">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16M4 17h16M8 4v6m8 4v6" />
+            </svg></button
+          ><button id="expand" class="icon-button" aria-label="Expand" title="Expand">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 4h6v6m0-6-8 8M10 20H4v-6m0 6 8-8" />
+            </svg>
+          </button>
+        </div>
+      </header>
+      <main>
+        <div class="toolbar">
+          <div role="tablist" aria-label="Audio source">
+            <button id="live-tab" role="tab" aria-selected="true" aria-controls="live-panel">
+              Live</button
+            ><button
+              id="file-tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="file-panel"
+              tabindex="-1"
+            >
+              File
+            </button>
+          </div>
+          <label class="sr-only" for="language">Language</label
+          ><select id="language" aria-label="Language"></select>
+        </div>
+        <section id="live-panel" role="tabpanel" aria-labelledby="live-tab">
+          <div
+            id="meter"
+            class="meter"
+            role="meter"
+            aria-label="Microphone level"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+          >
+            <span></span>
+          </div>
+        </section>
+        <section id="file-panel" role="tabpanel" aria-labelledby="file-tab" hidden>
+          <div id="file-summary" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 3H5v18h14V7l-4-4H8Zm7 0v5h4M8 13h8m-8 4h5" /></svg
+            ><span id="source-name"></span
+            ><button id="change-file" class="text-button" aria-label="Choose another audio file">
+              Change
+            </button>
+          </div>
+          <label class="file-drop" id="drop-zone" for="file"
+            ><svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 16V4m-4 4 4-4 4 4M4 15v5h16v-5" /></svg
+            ><span id="file-name">Choose an audio file</span
+            ><input id="file" type="file" accept="audio/*,.m4a,.ogg,.webm,.wav,.mp3,.flac" disabled
+          /></label>
+        </section>
+        <section class="transcript-area" aria-label="Transcript">
+          <div id="welcome">
+            <div class="signal-sculpture is-intro" aria-hidden="true">
+              <div class="signal-contours">
+                <img src="/brand/wave.svg" alt="" width="1280" height="480" />
+              </div>
+            </div>
+            <p id="empty">Start recording to transcribe.</p>
+          </div>
+          <!-- Preserve literal transcript whitespace. -->
+          <!-- prettier-ignore -->
+          <div id="transcript" tabindex="0" aria-label="Transcript" role="region"><span id="committed"></span><span id="draft"></span></div>
+          <aside id="klang-discover" hidden>
+            <p>Never forget a conversation.</p>
+            <a href="https://klang.ai/" target="_blank" rel="noopener noreferrer"
+              >Explore Klang <span aria-hidden="true">↗</span
+              ><span class="sr-only"> (opens in a new tab)</span></a
+            >
+          </aside>
+        </section>
+        <section id="setup" aria-label="Model">
+          <button id="load" class="primary">Load model</button>
+          <p id="download-size">661 MB on first download</p>
+        </section>
+        <div class="feedback">
+          <p id="status" role="status">Connecting…</p>
+          <span id="metrics"></span><button id="cancel" class="text-button" hidden>Cancel</button
+          ><progress id="progress" max="1" value="0" aria-label="Progress" hidden></progress>
+          <p id="error" role="alert" hidden></p>
+          <button id="permission" class="text-button" hidden>Allow microphone</button>
+        </div>
+        <div class="record-row">
+          <button id="record" class="primary" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm-6-4v1a6 6 0 0 0 12 0v-1M12 18v3m-3 0h6"
+              /></svg
+            ><span>Start recording</span>
+          </button>
+        </div>
+      </main>
+      <footer>
+        <div class="footer-actions">
+          <button id="copy" class="text-button" disabled>Copy</button
+          ><button id="reset" class="text-button" disabled>Clear</button>
+          <div class="export">
+            <label class="sr-only" for="format">Export format</label
+            ><select id="format">
+              <option value="txt">Text</option>
+              <option value="srt">SRT</option>
+              <option value="vtt">VTT</option>
+              <option value="json">JSON</option></select
+            ><button id="save" class="text-button" disabled>
+              Save <span aria-hidden="true">↓</span>
+            </button>
+          </div>
+        </div>
+        <p class="byline">
+          100% offline. By
+          <a href="https://klang.ai/" target="_blank" rel="noopener noreferrer"
+            >Klang<span class="sr-only"> (opens in a new tab)</span></a
+          >
+          with <span aria-hidden="true">♡</span><span class="sr-only">love</span>
+        </p>
+      </footer>
+      <dialog id="settings">
+        <div class="dialog-heading">
+          <h2>Settings</h2>
+          <button id="settings-close" class="icon-button" aria-label="Close settings">×</button>
+        </div>
+        <p id="model-name" class="model-name">Pianissimo</p>
+        <label for="quantization">Precision</label
+        ><select id="quantization">
+          <option value="int8">INT8 · 661 MB</option>
+          <option value="int4">INT4 · 515 MB</option>
+        </select>
+        <details id="supported-languages" hidden>
+          <summary>Supported languages</summary>
+          <p id="language-list"></p>
+        </details>
+        <div class="settings-actions">
+          <button id="unload" class="secondary" disabled>Unload model</button
+          ><button id="clear-cache" class="secondary">Delete downloaded models</button>
+        </div>
+        <p class="attribution">
+          <a
+            id="model-attribution"
+            href="https://huggingface.co/KlangAI/pianissimo-sv-onnx"
+            target="_blank"
+            rel="noreferrer"
+            >Pianissimo by Klang</a
+          >
+        </p>
+      </dialog>
+    </div>
+    <script type="module" src="/src/app.ts"></script>
+  </body>
+</html>

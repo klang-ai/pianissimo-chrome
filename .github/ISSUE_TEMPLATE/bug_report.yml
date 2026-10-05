@@ -1,0 +1,22 @@
+name: Bug report
+description: Report a problem with transcription, recording or installation.
+body:
+  - type: markdown
+    attributes:
+      value: Please exclude private recordings and transcripts. Report security vulnerabilities through the Security tab.
+  - type: textarea
+    attributes:
+      label: What happened?
+      description: Include what you expected and the steps needed to reproduce it.
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Environment
+      description: Extension version, Chrome version, operating system and selected language model.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Error message or additional details
+      description: Include only information you are comfortable making public.
