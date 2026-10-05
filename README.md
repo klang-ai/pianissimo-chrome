@@ -9,6 +9,8 @@ Transcribe audio files and microphone recordings on your computer. Your audio an
 
 ## Install
 
+Version 0.3.0 was submitted to Chrome Web Store on 5 October 2026 and is awaiting review. Automatic publication is enabled; store installation is not available yet.
+
 Download `pianissimo-chrome-0.3.0.zip` from [GitHub Releases](https://github.com/klang-ai/pianissimo-chrome/releases/latest) and extract it. Open `chrome://extensions`, enable **Developer mode**, choose **Load unpacked** and select the extracted folder containing `manifest.json`.
 
 To build from source:

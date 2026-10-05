@@ -1,5 +1,11 @@
 # Chrome Web Store listing
 
+Version 0.3.0 was submitted for review on 5 October 2026 with automatic publication enabled. The publisher is Klang AI AB. Distribution is public, free of charge and available in all regions once approved.
+
+**Item ID:** `dnioemmengjnkaagofjbomgdebgpghko`
+
+**Store URL after publication:** https://chromewebstore.google.com/detail/pianissimo/dnioemmengjnkaagofjbomgdebgpghko
+
 ## Public listing
 
 **Name:** Pianissimo
