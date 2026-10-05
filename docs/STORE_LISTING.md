@@ -14,29 +14,29 @@ Version 0.3.0 was submitted for review on 5 October 2026 with automatic publicat
 
 **Description:**
 
-Turn audio into text without uploading your recording.
+Pianissimo is Klang’s open speech-to-text model for Swedish, with more languages on the way. This extension lets you run it directly in Chrome.
 
-Pianissimo transcribes audio files and microphone recordings directly in Chrome. Choose Swedish with Klang Pianissimo, or multilingual recognition with NVIDIA Parakeet TDT v3. After the first model download, transcription works offline.
+Transcribe an audio file or record from your microphone. Your audio and transcripts stay on your computer.
 
-- Record from your microphone and follow the text as it appears.
-- Transcribe local WAV, MP3, M4A, OGG, WebM and FLAC files when the browser supports the codec.
-- Keep recording when the toolbar popup closes. Open the expanded view for longer transcripts.
-- Copy the text or save TXT, SRT, VTT and JSON.
-- Delete downloaded models from Settings whenever you need to free storage.
+Copy your transcript or export it as text or subtitles. For other languages, you can choose NVIDIA Parakeet.
 
-Your audio and transcripts stay on your device. No account, subscription or telemetry is required. Models download from Hugging Face, which receives normal download metadata, including your IP address.
+Free to use and open source. No account required.
 
-The first model download is 515–671 MB. Use a modern desktop with enough memory for the model. Recognition speed depends on your hardware. Review transcripts before relying on them: words and timestamps can be wrong. Live text is provisional until recording is finished.
+About the model
 
-Multilingual mode supports Bulgarian, Croatian, Czech, Danish, Dutch, English, Estonian, Finnish, French, German, Greek, Hungarian, Italian, Latvian, Lithuanian, Maltese, Polish, Portuguese, Romanian, Russian, Slovak, Slovenian, Spanish, Swedish and Ukrainian. Norwegian is not supported. Speaker identification, translation and system-audio capture are not included.
+https://klang.ai/pianissimo/
 
-Pianissimo is open source: https://github.com/klang-ai/pianissimo-chrome
+About Klang.ai
+
+Klang is a Swedish speech AI lab.
+
+https://klang.ai/
 
 **Category:** Productivity → Tools
 
 **Language:** English
 
-**Homepage:** https://github.com/klang-ai/pianissimo-chrome
+**Homepage:** https://klang.ai/pianissimo/
 
 **Support:** https://github.com/klang-ai/pianissimo-chrome/issues
 
