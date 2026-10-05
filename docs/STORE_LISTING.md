@@ -26,7 +26,7 @@ Multilingual mode supports Bulgarian, Croatian, Czech, Danish, Dutch, English, E
 
 Pianissimo is open source: https://github.com/klang-ai/pianissimo-chrome
 
-**Category:** Productivity
+**Category:** Productivity → Tools
 
 **Language:** English
 
@@ -47,6 +47,8 @@ Pianissimo is open source: https://github.com/klang-ai/pianissimo-chrome
 **Remote code:** No remotely hosted executable code. JavaScript and WebAssembly are bundled. Downloaded ONNX model weights and vocabulary are data, pinned to a revision and SHA-256 verified before use. The extension does not fetch JavaScript or WASM from a CDN.
 
 **User data:** Microphone audio, selected files and transcript text are handled in local memory. The extension sends no audio or transcript to a server, and does not collect identifying, browsing, advertising or analytics data. Hugging Face receives network metadata for user-initiated model downloads. Apply the dashboard's current definitions when completing its data-use fields.
+
+**Dashboard categories:** Personal communications (user-selected recordings), Website content (the form's text and sound category, covering user-provided audio and transcripts), and Location (IP address received by the model download provider). No access to other websites, browsing history or device location is requested. Local processing is disclosed as required by the [Chrome Web Store User Data FAQ](https://developer.chrome.com/docs/webstore/program-policies/user-data-faq).
 
 ## Reviewer instructions
 

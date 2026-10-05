@@ -15,6 +15,10 @@ Pianissimo for Chrome is provided by Klang AI AB. It runs speech recognition on 
 
 The extension does not sell or share your audio or transcripts, use them for advertising, or transfer them to Klang. The optional links to Klang and model documentation open external websites only when you choose them; those websites have their own privacy policies.
 
+For Chrome Web Store disclosure purposes, the locally processed audio and transcript text are user-provided content and may include personal communications. The store's location category covers the IP address received by the model download provider; Pianissimo does not request device location or build a location profile. These disclosures do not mean that audio or transcripts leave your device or that the extension reads other websites.
+
+Pianissimo complies with the Chrome Web Store User Data Policy, including its Limited Use requirements. Audio and transcript data are used only to provide the transcription, display, copy and export features you request. Klang receives no audio or transcripts and cannot read them. They are not sold, used for advertising, creditworthiness or lending, or used to train models. Network metadata sent to the model provider is limited to the requests needed to download the models you choose.
+
 Chrome may contact Google to install or update the extension. Those browser and store services operate under Google's policies. They do not receive audio or transcripts from Pianissimo.
 
 For privacy questions, contact [niklas@klang.ai](mailto:niklas@klang.ai). Changes to this policy are published in this repository with an updated effective date.
