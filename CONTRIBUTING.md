@@ -49,3 +49,5 @@ Code contributions are licensed under this repository's MIT license. Preserve th
 Update `package.json`, `package-lock.json`, `public/manifest.json` and `CHANGELOG.md` together. Run the checks and relevant model suites, then `npm run release`. The archive and SHA-256 checksum are written to `release/`. The archive excludes the SDK, source maps and development artifacts, and includes required licenses and corresponding Mediabunny source.
 
 Publish the verified archive as a GitHub release and submit the same archive to Chrome Web Store. A submitted item is not available in the store until Google's review and publication complete. Store metadata and reviewer instructions are maintained in [docs/STORE_LISTING.md](docs/STORE_LISTING.md).
+
+On Linux, the actual toolbar-popup tests use a displayed Chromium window. Run the checks through `xvfb-run -a npm run check` on a machine without a desktop display. CI uses the same virtual display.

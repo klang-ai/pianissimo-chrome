@@ -8,12 +8,13 @@ test('actual toolbar popup, offscreen host, CSP, expansion and reattachment', as
   const extension = resolve('dist');
   const context = await chromium.launchPersistentContext('', {
     channel: 'chromium',
-    headless: true,
+    headless: process.platform !== 'linux',
     args: [`--disable-extensions-except=${extension}`, `--load-extension=${extension}`],
   });
   try {
     const background = context.serviceWorkers()[0] ?? (await context.waitForEvent('serviceworker'));
     const page = await popup(context, background);
+    await page.screenshot(test.info().outputPath('toolbar-popup.png'));
     const host = await observeHost(context);
     const violations = page.errors;
 
@@ -51,7 +52,7 @@ test('real popup: download survives close, live text, reopen, expand, flush and 
   const extension = resolve('dist');
   const context = await chromium.launchPersistentContext('', {
     channel: 'chromium',
-    headless: !manualPermission,
+    headless: !manualPermission && process.platform !== 'linux',
     args: [
       `--disable-extensions-except=${extension}`,
       `--load-extension=${extension}`,
@@ -233,7 +234,7 @@ test('Parakeet in production extension: live English, offline files and cached r
   const fixture = 'en_us-1003119935936341070.wav';
   const context = await chromium.launchPersistentContext('', {
     channel: 'chromium',
-    headless: true,
+    headless: process.platform !== 'linux',
     args: [
       `--disable-extensions-except=${extension}`,
       `--load-extension=${extension}`,

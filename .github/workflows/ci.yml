@@ -22,7 +22,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium chrome
-      - run: npm run check
+      - run: xvfb-run -a npm run check
       - run: node scripts/release.mjs
       - run: unzip -t release/pianissimo-chrome-*.zip
       - if: inputs.real_models
@@ -30,13 +30,13 @@ jobs:
       - if: inputs.real_models
         run: npm run test:real
       - if: inputs.real_models
-        run: npm run test:extension:real
+        run: xvfb-run -a npm run test:extension:real
       - if: inputs.real_models
         run: npm run models:download -- --model=parakeet-tdt-v3
       - if: inputs.real_models
         run: npm run test:parakeet
       - if: inputs.real_models
-        run: npm run test:parakeet:extension
+        run: xvfb-run -a npm run test:parakeet:extension
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
