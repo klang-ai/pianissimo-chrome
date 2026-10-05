@@ -9,7 +9,7 @@ Tests verify specific behavior; they are not a general recognition-accuracy benc
 - Unit tests cover audio/token validation, transcript exports, pinned model definitions, bounded downloads, cancellation races, worker crashes, progress-callback failures, microphone cleanup, live word ownership and backpressure.
 - Browser checks cover UI controls, keyboard navigation, dialog focus, 375 px layouts, local fonts, reduced motion and axe WCAG 2/2.1 AA rules.
 - Decoder checks cover WAV, AAC/M4A, MP3, Vorbis/OGG, Opus/WebM and FLAC, codec continuity across windows, delayed container timestamps, cancellation and invalid media.
-- A generated two-hour WAV checks bounded PCM windows and source reads. Renderer memory samples exclude model-worker and native decoder allocations.
+- A generated two-hour WAV checks bounded PCM windows and source reads. Retained renderer memory is sampled after garbage collection; samples exclude model-worker and native decoder allocations.
 - An installed Manifest V3 test opens the actual toolbar popup through Chrome's action API. It checks offscreen session persistence, popup reopening, expansion, production CSP and cross-origin isolation.
 
 CI runs these checks on Ubuntu with Node.js 24. Browser traces, screenshots and test output are uploaded as workflow artifacts. Local artifacts are written under ignored `test-results/` and `playwright-report/` directories; running tests does not rewrite documentation.

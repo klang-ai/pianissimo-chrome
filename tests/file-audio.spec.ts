@@ -146,7 +146,11 @@ test('large file decoding remains bounded beyond two hours, supports cancellatio
   });
   await page.locator('#decode-file').setInputFiles(path);
   const cdp = await page.context().newCDPSession(page);
-  await page.exposeFunction('measureRenderer', () => cdp.send('Runtime.getHeapUsage'));
+  // Measure retained memory consistently across Chrome's platform-specific GC schedules.
+  await page.exposeFunction('measureRenderer', async () => {
+    await cdp.send('HeapProfiler.collectGarbage');
+    return cdp.send('Runtime.getHeapUsage');
+  });
   const result = await page.evaluate(async () => {
     const path = '/sdk/pianissimo.js';
     const { decodeAudioChunks } = await import(path);
@@ -230,7 +234,7 @@ test('large file decoding remains bounded beyond two hours, supports cancellatio
       {
         duration,
         memoryScope:
-          'Main renderer JS heap plus backing stores; excludes native decoder allocations and model worker',
+          'Retained main renderer JS heap plus backing stores after GC; excludes native decoder allocations and model worker',
         ...result,
       },
       null,
@@ -284,7 +288,11 @@ test('two-hour MP3: continuous decoding and renderer memory', async ({ page }) =
   });
   await page.locator('#decode-file').setInputFiles(process.env.LARGE_MP3!);
   const cdp = await page.context().newCDPSession(page);
-  await page.exposeFunction('measureRenderer', () => cdp.send('Runtime.getHeapUsage'));
+  // Measure retained memory consistently across Chrome's platform-specific GC schedules.
+  await page.exposeFunction('measureRenderer', async () => {
+    await cdp.send('HeapProfiler.collectGarbage');
+    return cdp.send('Runtime.getHeapUsage');
+  });
   const result = await page.evaluate(async () => {
     const path = '/sdk/pianissimo.js',
       { decodeAudioChunks } = await import(path);
@@ -320,7 +328,7 @@ test('two-hour MP3: continuous decoding and renderer memory', async ({ page }) =
     JSON.stringify(
       {
         memoryScope:
-          'Main renderer JS heap and backing stores; excludes native decoder allocations',
+          'Retained main renderer JS heap and backing stores after GC; excludes native decoder allocations',
         ...result,
       },
       null,

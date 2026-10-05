@@ -90,9 +90,25 @@ export class Popup {
     return output.result.value;
   }
   async click(selector: string) {
-    const point = await this.evaluate(
-      `(()=>{const r=document.querySelector(${JSON.stringify(selector)}).getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`,
-    );
+    let point: { x: number; y: number } | undefined;
+    await expect
+      .poll(async () => {
+        point = await this.evaluate(`(async () => {
+        const element = document.querySelector(${JSON.stringify(selector)});
+        if (!element || element.disabled) return null;
+        element.scrollIntoView({ block: 'center' });
+        const before = element.getBoundingClientRect();
+        await new Promise(requestAnimationFrame);
+        const rect = element.getBoundingClientRect();
+        if (!rect.width || !rect.height ||
+            Math.abs(before.x - rect.x) + Math.abs(before.y - rect.y) > 0.1) return null;
+        const x = rect.x + rect.width / 2, y = rect.y + rect.height / 2;
+        const hit = document.elementFromPoint(x, y);
+        return hit && element.contains(hit) ? { x, y } : null;
+      })()`);
+        return !!point;
+      })
+      .toBe(true);
     await this.send('Input.dispatchMouseEvent', {
       type: 'mousePressed',
       ...point,
