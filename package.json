@@ -27,7 +27,7 @@
   "dependencies": {
     "@noble/hashes": "2.4.0",
     "mediabunny": "1.61.1",
-    "onnxruntime-web": "1.24.1"
+    "onnxruntime-web": "1.30.0"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
