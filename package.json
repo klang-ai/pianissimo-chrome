@@ -33,7 +33,7 @@
     "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.63.0",
     "@types/chrome": "0.3.4",
-    "@types/node": "26.6.4",
+    "@types/node": "26.6.5",
     "prettier": "3.9.9",
     "typescript": "7.0.2",
     "vite": "8.3.2"
