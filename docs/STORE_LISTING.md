@@ -14,7 +14,7 @@ Version 0.3.0 was submitted for review on 5 October 2026 with automatic publicat
 
 **Description:**
 
-Pianissimo is Klang’s open speech-to-text model for Swedish, with more languages on the way. This extension lets you run it directly in Chrome.
+Pianissimo is Klang’s open speech-to-text model for Swedish and Danish, with more languages on the way. This extension lets you run it directly in Chrome.
 
 Transcribe an audio file or record from your microphone. Your audio and transcripts stay on your computer.
 
@@ -48,7 +48,7 @@ https://klang.ai/
 
 **offscreen:** The offscreen document owns audio capture and local model inference so a recording or transcription continues when the toolbar popup closes.
 
-**unlimitedStorage:** The extension caches verified speech model files locally. Each model variant requires approximately 515–671 MB; users can download more than one variant and remove caches in Settings.
+**unlimitedStorage:** The extension caches verified speech model files locally. Each model variant requires approximately 515–684 MB; users can download more than one variant and remove caches in Settings.
 
 **Remote code:** No remotely hosted executable code. JavaScript and WebAssembly are bundled. Downloaded ONNX model weights and vocabulary are data, pinned to a revision and SHA-256 verified before use. The extension does not fetch JavaScript or WASM from a CDN.
 
