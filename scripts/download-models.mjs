@@ -4,18 +4,19 @@ import { createReadStream } from 'node:fs';
 const args = process.argv.slice(2);
 const modelFlag = args.find((arg) => arg.startsWith('--model='));
 const model = modelFlag?.slice('--model='.length) ?? 'pianissimo-sv';
-if (!['pianissimo-sv', 'parakeet-tdt-v3'].includes(model)) throw new Error('Unknown model.');
+const manifests = {
+  'pianissimo-sv': 'upstream-manifest.json',
+  'pianissimo-da': 'pianissimo-da-manifest.json',
+  'parakeet-tdt-v3': 'parakeet-manifest.json',
+};
+if (!manifests[model]) throw new Error('Unknown model.');
 const multilingual = model === 'parakeet-tdt-v3';
 const manifest = JSON.parse(
-  await readFile(
-    new URL(
-      multilingual ? '../docs/parakeet-manifest.json' : '../docs/upstream-manifest.json',
-      import.meta.url,
-    ),
-  ),
+  await readFile(new URL(`../docs/${manifests[model]}`, import.meta.url)),
 );
-const revision = multilingual ? manifest.revision : '63730c6021234f26b9bbae9a07a04fec39e7a52e';
-const repo = multilingual ? manifest.repo : manifest.model;
+const swedish = model === 'pianissimo-sv';
+const revision = swedish ? '63730c6021234f26b9bbae9a07a04fec39e7a52e' : manifest.revision;
+const repo = swedish ? manifest.model : manifest.repo;
 const requested = args.filter((arg) => arg !== modelFlag);
 const variants = requested.length ? requested : multilingual ? ['int8'] : ['int8', 'int4'];
 if (variants.some((q) => !(multilingual ? ['int8'] : ['int8', 'int4']).includes(q)))
@@ -31,7 +32,7 @@ const names = [
     ]),
   ),
 ];
-const directory = multilingual ? '.models/parakeet-tdt-v3' : '.models';
+const directory = swedish ? '.models' : `.models/${model}`;
 await mkdir(directory, { recursive: true });
 for (const name of names) {
   const spec = manifest.files[name];

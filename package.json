@@ -20,6 +20,7 @@
     "release": "npm run build && node scripts/release.mjs",
     "test:endurance": "ENDURANCE=1 playwright test tests/large-model.spec.ts",
     "test:parakeet": "REAL_PARAKEET=1 playwright test tests/parakeet.spec.ts",
+    "test:danish": "REAL_DANISH=1 playwright test tests/danish.spec.ts",
     "test:parakeet:extension": "REAL_PARAKEET_EXTENSION=1 playwright test tests/extension.spec.ts --grep \"Parakeet in production\"",
     "format": "prettier --write .",
     "format:check": "prettier --check ."

@@ -96,3 +96,30 @@ test('multilingual selection shows its download, precision and supported languag
   await expect(page.locator('#download-size')).toHaveText('661 MB on first download');
   await expect(page.locator('#quantization option')).toHaveCount(2);
 });
+
+test('Danish selection shows its download, precisions and model page', async ({ page }) => {
+  await page.goto('/popup.html');
+  await expect(page.locator('#language option')).toHaveText([
+    'Swedish',
+    'Danish',
+    'Multilingual · Parakeet',
+  ]);
+  await page.locator('#language').selectOption('pianissimo-da');
+  await expect(page.locator('#language option:checked')).toHaveText('Danish');
+  await expect(page.locator('#download-size')).toHaveText('684 MB on first download');
+  await page.locator('#settings-open').click();
+  await expect(page.locator('#model-name')).toHaveText('Pianissimo');
+  await expect(page.locator('#quantization option')).toHaveText(['INT8 · 684 MB', 'INT4 · 525 MB']);
+  await expect(page.locator('#supported-languages')).toBeHidden();
+  await expect(page.locator('#model-attribution')).toHaveAttribute(
+    'href',
+    'https://huggingface.co/KlangAI/pianissimo-da-onnx',
+  );
+  await page.locator('#settings-close').click();
+  await page.locator('#language').selectOption('pianissimo-sv');
+  await page.locator('#settings-open').click();
+  await expect(page.locator('#model-attribution')).toHaveAttribute(
+    'href',
+    'https://huggingface.co/KlangAI/pianissimo-sv-onnx',
+  );
+});

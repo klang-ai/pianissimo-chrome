@@ -32,9 +32,11 @@ npm run test:extension:real
 npm run models:download -- --model=parakeet-tdt-v3
 npm run test:parakeet
 npm run test:parakeet:extension
+npm run models:download -- --model=pianissimo-da
+npm run test:danish
 ```
 
-These commands download about 1.9 GB of model assets in total; installed-extension checks also download models into their isolated browser profiles. Files under `.models/` are ignored. Never commit model weights or personal recordings. Test fixtures and their licenses are described in [tests/fixtures/README.md](tests/fixtures/README.md).
+These commands download about 3.1 GB of model assets in total; installed-extension checks also download models into their isolated browser profiles. Files under `.models/` are ignored. Never commit model weights or personal recordings. Test fixtures and their licenses are described in [tests/fixtures/README.md](tests/fixtures/README.md).
 
 `npm run test:endurance` runs the optional two-hour file inference check. See [validation](docs/VALIDATION.md) for coverage and limitations. Native reference regeneration requires Python, `onnx-asr==0.12.0` and `onnxruntime==1.30.0`; see `scripts/reference*.py`.
 

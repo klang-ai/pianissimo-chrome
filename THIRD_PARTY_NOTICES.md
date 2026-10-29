@@ -8,6 +8,12 @@ Revision: 63730c6021234f26b9bbae9a07a04fec39e7a52e.
 The model weights are unmodified. This project implements browser inference and greedy TDT decoding.
 Model weights are downloaded separately and are not part of the extension package.
 
+Model: KlangAI/pianissimo-da-onnx, by Klang AI AB. Fine-tuned from NVIDIA Parakeet TDT 0.6B v3.
+https://huggingface.co/KlangAI/pianissimo-da-onnx
+Model license: Creative Commons Attribution 4.0 International (CC BY 4.0).
+https://creativecommons.org/licenses/by/4.0/
+The model weights are unmodified and verified against pinned SHA-256 hashes. They are downloaded separately and are not part of the extension package.
+
 ONNX Runtime Web 1.24.1, Copyright Microsoft Corporation, MIT license.
 https://github.com/microsoft/onnxruntime
 
