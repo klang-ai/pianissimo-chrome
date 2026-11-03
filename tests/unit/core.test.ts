@@ -99,6 +99,13 @@ test('models isolate identical filenames and reject unavailable variants', () =>
   assert.equal(downloadMegabytes(swedish, 'int8'), 661);
   assert.equal(downloadMegabytes(swedish, 'int4'), 515);
   assert.equal(downloadMegabytes(multilingual, 'int8'), 671);
+  const danish = getModel('pianissimo-da');
+  assert.equal(danish.language, 'da');
+  assert.notEqual(danish.cacheDirectory, swedish.cacheDirectory);
+  assert.notEqual(danish.assets('int8')[0]!.sha256, swedish.assets('int8')[0]!.sha256);
+  assert.equal(downloadMegabytes(danish, 'int8'), 684);
+  assert.equal(downloadMegabytes(danish, 'int4'), 525);
+  assert.equal(new Set(MODELS.map((model) => model.cacheDirectory)).size, MODELS.length);
   for (const model of MODELS)
     for (const quantization of model.quantizations)
       for (const asset of model.assets(quantization)) {

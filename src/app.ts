@@ -78,12 +78,11 @@ function render(next: SessionState) {
   el('supported-languages').hidden = model.id !== 'parakeet-tdt-v3';
   el('language-list').textContent = PARAKEET_LANGUAGES.join(', ') + '.';
   const attribution = el<HTMLAnchorElement>('model-attribution');
-  attribution.textContent =
-    model.id === 'pianissimo-sv' ? 'Pianissimo by Klang' : 'Parakeet by NVIDIA';
-  attribution.href =
-    model.id === 'pianissimo-sv'
-      ? 'https://huggingface.co/KlangAI/pianissimo-sv-onnx'
-      : 'https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3';
+  const pianissimo = model.repo.startsWith('KlangAI/');
+  attribution.textContent = pianissimo ? 'Pianissimo by Klang' : 'Parakeet by NVIDIA';
+  attribution.href = pianissimo
+    ? `https://huggingface.co/${model.repo}`
+    : 'https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3';
   el<HTMLButtonElement>('unload').disabled = busy || !state.loaded;
   el<HTMLButtonElement>('clear-cache').disabled = !connected || busy;
   file.disabled = !state.loaded || busy;

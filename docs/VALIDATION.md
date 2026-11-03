@@ -22,6 +22,8 @@ See [CONTRIBUTING.md](../CONTRIBUTING.md) for commands and download requirements
 
 `test:parakeet` checks human-recorded English, German, French, Danish and Russian samples against their human references. It also checks a 52-second repeated sample, switching between both models, offline cache reuse and cache deletion. Five clips are a compatibility check, not validation of all 25 supported languages.
 
+`test:danish` checks Danish Pianissimo INT8 and INT4 on the human-recorded Danish FLEURS sample, requiring no more word errors than Parakeet's native reference. It also checks silence, the transcript's model and language fields, switching to Swedish and offline cache reuse. One short clip is a compatibility check, not a Danish accuracy benchmark.
+
 `test:extension:real` and `test:parakeet:extension` download real model weights under the production extension CSP. They exercise the actual popup, recording while the popup is closed, final audio flushing, file inference offline and model reload. The Swedish suite also tests controlled permission denial/retry, permission-window closure and service-worker restart. Audio comes from Chrome's WAV-backed test microphone.
 
 `test:endurance` generates a 7,210-second WAV with five copies of a FLEURS utterance around timestamp boundaries. It checks inference through the last utterance, cancellation and cached reload. This sparse-speech input is not a continuous-conversation benchmark. The optional two-hour MP3 decoder check is documented in [fixture provenance](../tests/fixtures/README.md).

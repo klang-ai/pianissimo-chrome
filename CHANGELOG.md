@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.0
+
+- Danish transcription with Klang Pianissimo for Danish (INT8 and INT4), downloaded from Hugging Face from its launch day.
+
 ## 0.3.0
 
 First public release of Pianissimo for Chrome.

@@ -44,6 +44,44 @@ export function assetsFor(quantization: Quantization): Asset[] {
   ].map((name) => ({ name, ...files[name]! }));
 }
 
+export const DANISH_MODEL = 'KlangAI/pianissimo-da-onnx' as const;
+export const DANISH_REVISION = '07f0f281017b06158012e463a60ee0e9b4817cab';
+const danishFiles: Record<string, Omit<Asset, 'name'>> = {
+  'encoder-model.int8.onnx': {
+    bytes: 630313965,
+    sha256: 'c24b31ad20d0ca17f7fda376edd36f2c3384fe3da2d55f25986a5cb190c7753d',
+  },
+  'decoder_joint-model.int8.onnx': {
+    bytes: 53639765,
+    sha256: '90035d9a36a8fb3aacb6ae5ce8bf03c1505566fae0b35ec5306d36bc9078655a',
+  },
+  'encoder-model.int4.onnx': {
+    bytes: 496353006,
+    sha256: 'a2d06f139e59d790d828bffa1cb00f2460a2e65333f624bd7b5072483fdb2b97',
+  },
+  'decoder_joint-model.int4.onnx': {
+    bytes: 28480554,
+    sha256: '00c67576b8379cfeffd38a8dac2666ac9af523702de719dbc9d49820b4f1c03e',
+  },
+  'nemo128.onnx': {
+    bytes: 138824,
+    sha256: '5b4a84c52eeaa615dc46d781cc7e4598f9b432184831d57493c48adcd01371a9',
+  },
+  'vocab.txt': {
+    bytes: 93939,
+    sha256: 'd58544679ea4bc6ac563d1f545eb7d474bd6cfa467f0a6e2c1dc1c7d37e3c35d',
+  },
+};
+function danishAssets(quantization: Quantization): Asset[] {
+  if (quantization !== 'int8' && quantization !== 'int4') throw new Error('Unknown model variant.');
+  return [
+    `encoder-model.${quantization}.onnx`,
+    `decoder_joint-model.${quantization}.onnx`,
+    'nemo128.onnx',
+    'vocab.txt',
+  ].map((name) => ({ name, ...danishFiles[name]! }));
+}
+
 export const PARAKEET_REVISION = '8f23f0c03c8761650bdb5b40aaf3e40d2c15f1ce';
 const parakeetFiles: Record<string, Omit<Asset, 'name'>> = {
   'encoder-model.int8.onnx': {
@@ -127,6 +165,19 @@ export const MODELS: readonly ModelDefinition[] = [
     durationBins: 5,
     quantizations: ['int8', 'int4'],
     assets: assetsFor,
+  },
+  {
+    id: 'pianissimo-da',
+    language: 'da',
+    label: 'Danish',
+    name: 'Pianissimo',
+    repo: DANISH_MODEL,
+    revision: DANISH_REVISION,
+    baseUrl: `https://huggingface.co/${DANISH_MODEL}/resolve/${DANISH_REVISION}/`,
+    cacheDirectory: `pianissimo-da-${DANISH_REVISION}`,
+    durationBins: 5,
+    quantizations: ['int8', 'int4'],
+    assets: danishAssets,
   },
   {
     id: 'parakeet-tdt-v3',

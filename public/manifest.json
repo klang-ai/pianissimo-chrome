@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Pianissimo",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Transcribe audio files and microphone recordings on your device. Works offline after the first model download.",
   "homepage_url": "https://github.com/klang-ai/pianissimo-chrome",
   "minimum_chrome_version": "120",

@@ -27,7 +27,7 @@ Use Node.js 24 or later. Load the resulting `dist/` folder through `chrome://ext
 ## Use
 
 1. Pin Pianissimo and open its toolbar icon.
-2. Choose **Swedish** or **Multilingual · Parakeet**, then **Load model**.
+2. Choose **Swedish**, **Danish** or **Multilingual · Parakeet**, then **Load model**.
 3. Select **Start recording**, or choose an audio file in **File**.
 4. Stop recording to finish the transcript. Copy it or save TXT, SRT, VTT or JSON.
 
@@ -43,7 +43,11 @@ Live text is provisional and can change until processed. Review the finished tra
 | ------------ | ---------------------- | ------------- | -------------: |
 | Swedish      | Klang Pianissimo       | INT8, default |         661 MB |
 | Swedish      | Klang Pianissimo       | INT4          |         515 MB |
+| Danish       | Klang Pianissimo       | INT8, default |         684 MB |
+| Danish       | Klang Pianissimo       | INT4          |         525 MB |
 | Multilingual | NVIDIA Parakeet TDT v3 | INT8          |         671 MB |
+
+The Danish Pianissimo model is downloaded from Hugging Face starting on its launch day, 2 November 2026. On Klang's own Danish test sets, it is the most accurate open Danish speech recognition model.
 
 Multilingual mode automatically recognizes 25 European languages. See **Settings → Supported languages** for the complete list. Norwegian is not supported by this model. Choose the model before loading; switching models releases the current model and keeps each download cached separately.
 
@@ -69,6 +73,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for setup, checks and releases.
 
 ## Licenses
 
-Pianissimo's code is [MIT licensed](LICENSE). The Swedish Pianissimo and NVIDIA Parakeet model weights are separately licensed under CC BY 4.0 and downloaded from pinned ONNX exports. Model weights are not included in the extension archive.
+Pianissimo's code is [MIT licensed](LICENSE). The Swedish and Danish Pianissimo and NVIDIA Parakeet model weights are separately licensed under CC BY 4.0 and downloaded from pinned ONNX exports. Model weights are not included in the extension archive.
 
 The bundled runtime, decoder and font have their own licenses. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and [fixture provenance](tests/fixtures/README.md). Klang's name and brand marks remain Klang's identity.
