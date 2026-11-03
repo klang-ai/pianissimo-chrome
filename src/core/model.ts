@@ -45,7 +45,7 @@ export function assetsFor(quantization: Quantization): Asset[] {
 }
 
 export const DANISH_MODEL = 'KlangAI/pianissimo-da-onnx' as const;
-export const DANISH_REVISION = 'main';
+export const DANISH_REVISION = '07f0f281017b06158012e463a60ee0e9b4817cab';
 const danishFiles: Record<string, Omit<Asset, 'name'>> = {
   'encoder-model.int8.onnx': {
     bytes: 630313965,
